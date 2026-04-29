@@ -526,7 +526,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-xs font-light leading-relaxed mb-4 opacity-90 text-gray-100"
+              className="text-sm sm:text-base font-medium leading-relaxed mb-6 text-white/95"
             >
               {data.header.description}
             </motion.p>
@@ -534,19 +534,19 @@ export default function App() {
             <motion.div 
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              className="h-px w-20 bg-brand-gold/50 mb-4"
+              className="h-px w-20 bg-brand-gold/50 mb-6"
             />
 
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-[10px] font-semibold tracking-widest mb-6 uppercase text-brand-gold"
+              className="text-xs sm:text-sm font-bold tracking-[0.15em] mb-8 uppercase text-brand-gold border-y border-brand-gold/20 py-2 w-full"
             >
               {data.header.subTitle}
             </motion.p>
 
-            <div className="grid grid-cols-4 gap-2 w-full">
+            <div className="grid grid-cols-2 gap-4 w-full">
               {data.features.map((item, id) => {
                 const Icon = featureIcons[item.label as keyof typeof featureIcons] || Users;
                 return (
@@ -555,12 +555,12 @@ export default function App() {
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 + id * 0.1 }}
-                    className="flex flex-col items-center"
+                    className="flex flex-col items-center p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-xl hover:bg-white/10 transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-full border border-brand-gold/30 flex items-center justify-center mb-2 bg-white/5">
-                      <Icon className="text-brand-gold w-4 h-4" />
+                    <div className="w-14 h-14 rounded-2xl border border-brand-gold/30 flex items-center justify-center mb-3 bg-gradient-to-br from-brand-gold/20 to-transparent shadow-lg" >
+                      <Icon className="text-brand-gold w-7 h-7" />
                     </div>
-                    <span className="text-[8px] font-bold uppercase leading-tight tracking-tighter opacity-80">
+                    <span className="text-[11px] sm:text-xs font-bold uppercase leading-tight tracking-[0.1em] text-center text-white/95">
                       {item.label}
                     </span>
                   </motion.div>
