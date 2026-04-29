@@ -546,7 +546,7 @@ export default function App() {
               {data.header.subTitle}
             </motion.p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
               {data.features.map((item, id) => {
                 const Icon = featureIcons[item.label as keyof typeof featureIcons] || Users;
                 return (
@@ -555,12 +555,12 @@ export default function App() {
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 + id * 0.1 }}
-                    className="flex flex-col items-center bg-white/5 p-3 rounded-xl border border-white/10"
+                    className="flex flex-col items-center bg-white/5 p-3 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 min-h-[110px] group"
                   >
-                    <div className="w-12 h-12 rounded-full border-2 border-brand-gold flex items-center justify-center mb-3 bg-white/10 shadow-lg shadow-black/20">
-                      <Icon className="text-brand-gold w-6 h-6" />
+                    <div className="w-10 h-10 rounded-full border border-brand-gold flex items-center justify-center mb-3 bg-brand-gold/5 shadow-inner group-hover:bg-brand-gold/20 transition-colors">
+                      <Icon className="text-brand-gold w-5 h-5" />
                     </div>
-                    <span className="text-[11px] font-black uppercase leading-tight tracking-normal text-white text-center">
+                    <span className="text-[9px] sm:text-[10px] font-bold uppercase leading-tight tracking-[0.1em] text-white/90 text-center flex-1 flex items-center">
                       {item.label}
                     </span>
                   </motion.div>
