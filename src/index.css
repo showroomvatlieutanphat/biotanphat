@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", sans-serif;
+  
+  --color-primary: #8B0000;
+  --color-brand-red: #A51D24;
+  --color-brand-gold: #C5A059;
+  --color-background-light: #720909;
+
+  --radius-xl: 1.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background-light font-sans text-gray-900;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(197, 160, 89, 0.08) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.03) 0, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(197, 160, 89, 0.08) 0, transparent 50%);
+  }
+}
+
+.header-gradient {
+  background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(139, 0, 0, 0.8) 0%, rgba(50, 0, 0, 0.85) 100%);
+  z-index: 1;
+}
+
+.header-gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.2;
+  z-index: 2;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

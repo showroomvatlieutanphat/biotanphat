@@ -1,0 +1,25 @@
+{
+  "header": {
+    "title": "TÂN PHÁT TOTE & BUILDING",
+    "description": "Chuyên thiết kế và thi công kiến trúc, nội thất cao cấp với hơn 15 năm kinh nghiệm, kiến tạo những không gian sống đẳng cấp và bền vững.",
+    "subTitle": "TƯ VẤN – THIẾT KẾ – THI CÔNG – CUNG CẤP VẬT LIỆU"
+  },
+  "features": [
+    {"label": "Đội ngũ chuyên nghiệp"},
+    {"label": "Chất lượng vượt trội"},
+    {"label": "Cam kết uy tín"},
+    {"label": "Giá trị bền vững"}
+  ],
+  "video": {
+    "title": "KIẾN TẠO KHÔNG GIAN SỐNG",
+    "subTitle": "Nâng tầm giá trị",
+    "thumbnail": "https://lh3.googleusercontent.com/aida-public/AB6AXuB3wB8wIbzzhegra-X6n7KVcD8capy0-X0PJHc3_5lnDIC8h6lu8AfrQ7eoUBGOGmwryaNZlqb93q3i8xG6KJp2ja1B-3sglhWbC3NmUucmCIExpQO2PWnU57hMLTK1cjzxKxyNJGLZ85ZS0ldfAmvfRz8tFieVLpeGTRNPxrEsjdz2XtEQ2aVpcD9rRpRCzh8FZW4OyU8ob0rC2w1IKXjxX7GUvC5GKLjTPv436Hmn8XOgVd8vdtgz4Yma6G0ye1iicMpsT0uEb0CP",
+    "youtubeId": "dQw4w9WgXcQ"
+  },
+  "contactLinks": [
+    { "name": "Tân Phát Tote & Building", "url": "https://www.facebook.com/tanphattote", "type": "facebook" },
+    { "name": "Tân Phát Luxury", "url": "https://www.facebook.com/tanphatluxury", "type": "facebook" },
+    { "name": "Tân Phát Construction", "url": "https://www.facebook.com/tanphatconstruction", "type": "facebook" },
+    { "name": "Tân Phát Furniture", "url": "https://www.facebook.com/tanphatfurniture", "type": "facebook" }
+  ]
+}

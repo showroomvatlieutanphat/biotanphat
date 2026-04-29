@@ -1,0 +1,56 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isEmailVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isAdmin() {
+      return isEmailVerified() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        request.auth.token.email == "showroomvatlieutanphat@gmail.com"
+      );
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Site Data Validation
+    function isValidSiteData(data) {
+      return data.keys().hasAll(['header', 'features', 'video', 'contactLinks']) &&
+             data.keys().size() == 4 &&
+             data.header is map &&
+             data.header.title is string && data.header.title.size() <= 200 &&
+             data.header.description is string && data.header.description.size() <= 1000 &&
+             data.header.subTitle is string && data.header.subTitle.size() <= 200 &&
+             data.features is list &&
+             data.video is map &&
+             data.video.title is string &&
+             data.contactLinks is list;
+    }
+
+    // Settings Collection
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidSiteData(request.resource.data);
+    }
+
+    // Admins Collection
+    match /admins/{adminId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Only manageable via console or specialized tool
+    }
+  }
+}

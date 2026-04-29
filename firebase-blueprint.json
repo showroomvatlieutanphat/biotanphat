@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "SiteData": {
+      "title": "Site Data",
+      "description": "Configuration for the landing page content",
+      "type": "object",
+      "properties": {
+        "header": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "description": { "type": "string" },
+            "subTitle": { "type": "string" }
+          },
+          "required": ["title", "description", "subTitle"]
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" }
+            },
+            "required": ["label"]
+          }
+        },
+        "video": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "subTitle": { "type": "string" },
+            "thumbnail": { "type": "string" },
+            "youtubeId": { "type": "string" }
+          },
+          "required": ["title", "subTitle", "thumbnail", "youtubeId"]
+        },
+        "contactLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string" },
+              "type": { "type": "string" }
+            },
+            "required": ["name", "url", "type"]
+          }
+        }
+      },
+      "required": ["header", "features", "video", "contactLinks"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "Admin user record",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/settings/content": {
+      "schema": "SiteData",
+      "description": "The main content for the landing page"
+    },
+    "/admins/{adminId}": {
+      "schema": "Admin",
+      "description": "Authorized admin users"
+    }
+  }
+}
