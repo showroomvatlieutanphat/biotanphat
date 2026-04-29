@@ -517,7 +517,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-lg sm:text-2xl font-black tracking-[0.1em] mb-4 text-shadow-lg uppercase font-display whitespace-nowrap w-full text-center text-white"
+              className="text-base sm:text-lg font-extrabold tracking-[0.05em] mb-3 text-shadow uppercase font-display whitespace-nowrap w-full text-center"
             >
               {data.header.title}
             </motion.h1>
@@ -526,7 +526,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-sm sm:text-base font-semibold leading-relaxed mb-6 text-white max-w-[95%] drop-shadow-sm"
+              className="text-xs font-light leading-relaxed mb-4 opacity-90 text-gray-100"
             >
               {data.header.description}
             </motion.p>
@@ -534,19 +534,19 @@ export default function App() {
             <motion.div 
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              className="h-px w-24 bg-brand-gold mb-6"
+              className="h-px w-20 bg-brand-gold/50 mb-4"
             />
 
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-[11px] sm:text-xs font-black tracking-[0.2em] mb-8 uppercase text-brand-gold border-y border-brand-gold/20 py-2.5 w-full"
+              className="text-[10px] font-semibold tracking-widest mb-6 uppercase text-brand-gold"
             >
               {data.header.subTitle}
             </motion.p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
+            <div className="grid grid-cols-4 gap-2 w-full">
               {data.features.map((item, id) => {
                 const Icon = featureIcons[item.label as keyof typeof featureIcons] || Users;
                 return (
@@ -555,12 +555,12 @@ export default function App() {
                     initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.5 + id * 0.1 }}
-                    className="flex flex-col items-center bg-white/5 p-3 rounded-xl border border-white/10 hover:bg-white/10 transition-all duration-300 min-h-[110px] group"
+                    className="flex flex-col items-center"
                   >
-                    <div className="w-10 h-10 rounded-full border border-brand-gold flex items-center justify-center mb-3 bg-brand-gold/5 shadow-inner group-hover:bg-brand-gold/20 transition-colors">
-                      <Icon className="text-brand-gold w-5 h-5" />
+                    <div className="w-10 h-10 rounded-full border border-brand-gold/30 flex items-center justify-center mb-2 bg-white/5">
+                      <Icon className="text-brand-gold w-4 h-4" />
                     </div>
-                    <span className="text-[9px] sm:text-[10px] font-bold uppercase leading-tight tracking-[0.1em] text-white/90 text-center flex-1 flex items-center">
+                    <span className="text-[8px] font-bold uppercase leading-tight tracking-tighter opacity-80">
                       {item.label}
                     </span>
                   </motion.div>
@@ -615,10 +615,10 @@ export default function App() {
                     >
                       <Play className="w-8 h-8 fill-current" />
                     </motion.button>
-                    <h2 className="text-white text-2xl font-black leading-tight drop-shadow-lg font-display uppercase tracking-widest px-2">
+                    <h2 className="text-white text-xl font-bold leading-tight drop-shadow-md font-display uppercase tracking-wider">
                       {data.video.title}
                     </h2>
-                    <p className="text-white text-xl italic opacity-100 font-serif mt-2 drop-shadow-md">{data.video.subTitle}</p>
+                    <p className="text-white text-lg italic opacity-90 font-serif mt-1">{data.video.subTitle}</p>
                   </div>
 
                   <div className="flex justify-between items-center text-white/90 text-[10px]">
@@ -685,10 +685,10 @@ export default function App() {
                   })()}
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-black text-primary text-[15px] group-hover:text-brand-red transition-colors">
+                  <span className="font-extrabold text-primary text-sm group-hover:text-brand-red transition-colors">
                     {item.name}
                   </span>
-                  <span className="text-[11px] text-gray-500 font-bold uppercase tracking-wider">
+                  <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
                     {item.type}
                   </span>
                 </div>
