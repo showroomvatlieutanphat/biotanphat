@@ -17,9 +17,9 @@ service cloud.firestore {
     }
 
     function isAdmin() {
-      return isEmailVerified() && (
-        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
-        request.auth.token.email == "showroomvatlieutanphat@gmail.com"
+      return isSignedIn() && (
+        (request.auth.token.email_verified == true && request.auth.token.email == "showroomvatlieutanphat@gmail.com") ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
       );
     }
 
@@ -30,21 +30,16 @@ service cloud.firestore {
     // Site Data Validation
     function isValidSiteData(data) {
       return data.keys().hasAll(['header', 'features', 'video', 'contactLinks']) &&
-             data.keys().size() == 4 &&
              data.header is map &&
-             data.header.title is string && data.header.title.size() <= 200 &&
-             data.header.description is string && data.header.description.size() <= 1000 &&
-             data.header.subTitle is string && data.header.subTitle.size() <= 200 &&
              data.features is list &&
              data.video is map &&
-             data.video.title is string &&
              data.contactLinks is list;
     }
 
     // Settings Collection
     match /settings/{docId} {
       allow read: if true;
-      allow write: if isAdmin() && isValidSiteData(request.resource.data);
+      allow write: if isValidId(docId) && isAdmin() && isValidSiteData(request.resource.data);
     }
 
     // Admins Collection

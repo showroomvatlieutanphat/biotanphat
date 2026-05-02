@@ -57,6 +57,7 @@ interface AppData {
     title: string;
     description: string;
     subTitle: string;
+    logoUrl: string;
   };
   features: { label: string }[];
   video: {
@@ -72,7 +73,8 @@ const DEFAULT_DATA: AppData = {
   "header": {
     "title": "TÂN PHÁT TOTE & BUILDING",
     "description": "Chuyên thiết kế và thi công kiến trúc, nội thất cao cấp với hơn 15 năm kinh nghiệm, kiến tạo những không gian sống đẳng cấp và bền vững.",
-    "subTitle": "TƯ VẤN – THIẾT KẾ – THI CÔNG – CUNG CẤP VẬT LIỆU"
+    "subTitle": "TƯ VẤN – THIẾT KẾ – THI CÔNG – CUNG CẤP VẬT LIỆU",
+    "logoUrl": "/logo_brand.png"
   },
   "features": [
     {"label": "Đội ngũ chuyên nghiệp"},
@@ -349,6 +351,15 @@ export default function App() {
                     />
                   </div>
                   <div>
+                    <label className="text-xs font-bold text-gray-500 mb-1 block">Logo URL</label>
+                    <input 
+                      value={editData?.header.logoUrl || ""}
+                      onChange={(e) => setEditData(prev => prev ? {...prev, header: {...prev.header, logoUrl: e.target.value}} : null)}
+                      className="w-full px-4 py-2 bg-gray-50 border-none rounded-lg focus:ring-1 focus:ring-primary"
+                      placeholder="/logo_brand.png"
+                    />
+                  </div>
+                  <div>
                     <label className="text-xs font-bold text-gray-500 mb-1 block">YouTube Video ID</label>
                     <input 
                       value={editData?.video.youtubeId || ""}
@@ -509,7 +520,7 @@ export default function App() {
               <img 
                 alt="Tan Phat Logo" 
                 className="rounded-full w-full h-full object-contain" 
-                src="https://lh3.googleusercontent.com/aida/ADBb0ugpVxhXF5DDfojzXLQ-9Q1_bHXWucWr1DYZyxBeHzkf6vE1SPKSa4HX0QFZitmyHfsYipmqo-YhxVp3Q19E8h9A7jfAIZ-d3zd1zGlBy5In-KZXfTZHkLsyp027XRaRpS3mc2WnHQwua2WZEkM44pYPpopu3CEiK_Ryo6oXO3h1SjBX3Xni4TMvOVoBajC-buOLpTFOmik3oTk3168nDptpMYnZmipNmKAoY1ccK2roN7E5ad5ceBA1q_tEqk8PxGbQw5ZomvXagQ"
+                src={data.header.logoUrl || "/logo_brand.png"}
               />
             </motion.div>
 

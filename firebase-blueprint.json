@@ -10,9 +10,10 @@
           "properties": {
             "title": { "type": "string" },
             "description": { "type": "string" },
-            "subTitle": { "type": "string" }
+            "subTitle": { "type": "string" },
+            "logoUrl": { "type": "string" }
           },
-          "required": ["title", "description", "subTitle"]
+          "required": ["title", "description", "subTitle", "logoUrl"]
         },
         "features": {
           "type": "array",

@@ -2,7 +2,8 @@
   "header": {
     "title": "TÂN PHÁT TOTE & BUILDING",
     "description": "Chuyên thiết kế và thi công kiến trúc, nội thất cao cấp với hơn 15 năm kinh nghiệm, kiến tạo những không gian sống đẳng cấp và bền vững.",
-    "subTitle": "TƯ VẤN – THIẾT KẾ – THI CÔNG – CUNG CẤP VẬT LIỆU"
+    "subTitle": "TƯ VẤN – THIẾT KẾ – THI CÔNG – CUNG CẤP VẬT LIỆU",
+    "logoUrl": "/logo_brand.png"
   },
   "features": [
     {"label": "Đội ngũ chuyên nghiệp"},
